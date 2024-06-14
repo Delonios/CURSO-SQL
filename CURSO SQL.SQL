@@ -105,4 +105,102 @@ Depois pesquisar pela informação do BusinessEntityID na tabela EmailAddress.
 Na primeira tabela tinha o ID dele que é 26, e através do 26 conseguimos encontrar 
 o email correspondente. Ou seja, ID 26 é o Peter Krabs na tabela BusinessEntityID.
 
+Aula 05 - Count
+
+-- Count
+SELECT COUNT(*)
+FROM TABELA
+
+SELECT Count(tittle)
+FROM person.Person
+
+SELECT count(DISTINCT title)
+FROM person.Person
+
+/*DESAFIO 1 
+Quantos Produtos temos cadastrados em nossa tabela de produtos (produciont.product).
+*/
+SELECT count(*)
+FROM Production.Product
+
+R: 504
+
+/*DESAFIO 2 
+
+Quantos tamanhos de produtos temos cadastrado em nossa tabela (production.product).
+*/
+SELECT count(size)
+FROM Production.Product
+R: 211
+
+/*DESAFIO 3
+
+Quantos tamanhos diferentes de produtos temos cadastrados em nossa tavela.
+(production.product)
+*/
+
+SELECT count(DISTINCT size)
+FROM Production.Product
+
+R: 18.
+
+AULA 06
+
+-- TOP
+
+SELECT TOP 10 *
+FROM Production.Product
+
+-- retorna o os 10 primeiros itens da tabela. 
+
+Aula 07
+
+-- ORDER BY
+
+SELECT *
+FROM Person.Person
+ORDER BY FirstName asc -- ascendente ( organiza os nomes em ordem crescente).
+
+SELECT * -- * indica que está mostrando todas as colunas. 
+FROM Person.Person
+ORDER BY FirstName desc -- descendente ( organiza os nomes em ordem descendente).
+
+SELECT FirstName, LastName -- Visualmente falando estaremos vendo só as 2 colunas.
+FROM Person.Person
+ORDER BY FirstName asc, LastName desc
+
+
+-- DESAFIO 1
+
+/* Obter o ProductId dos 10 produtos mais caros cadastrados no sistema, listando do mais caro para o mais barato.*/
+
+/* Dicas: 
+Usar a tabela Production.product
+Usar o ORDER BY e TOP
+USAR ORDER BY ASC ou DESC dependendo do resultado que está buscando.*/
+
+R:
+SELECT TOP 10 ProductID
+FROM Production.Product
+ORDER BY ListPrice desc
+
+-- DESAFIO 2 
+
+/* Obter o nome e o número do produto dos produtos que tem o ProductID entre 1~4*/
+
+R:
+
+SELECT Name, ProductNumber
+FROM Production.Product
+WHERE ProductID >= '1' and ProductID <= '4'
+
+Correção:
+
+SELECT TOP 4 name, ProductNumber
+FROM Production.ProductNumber
+ORDER BY ProductID asc
+
+AULA 08 
+
+-- BETWEEN
 
