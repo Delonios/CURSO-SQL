@@ -13,7 +13,7 @@
     Data Science ( Ciência de Dados ). */
 
 -- exercício 
-/* A EQUIPE DE MARKETIN PRECISA DE FAZER UMA PESQUISA SOBRE NOMES  MAIS COMUNS DE
+/* A EQUIPE DE MARKETINg PRECISA DE FAZER UMA PESQUISA SOBRE NOMES  MAIS COMUNS DE
 SEUS CLIENTES E PRECISA DO NOME E SOBRENOME DE TODOS OS CLIENTES QUE ESTÃO CDASTRADOS 
  NO SISTEMA. */
 
@@ -196,11 +196,96 @@ WHERE ProductID >= '1' and ProductID <= '4'
 
 Correção:
 
-SELECT TOP 4 name, ProductNumber
-FROM Production.ProductNumber
+SELECT TOP 4 name, productNumber
+FROM Production.Product
 ORDER BY ProductID asc
 
 AULA 08 
 
 -- BETWEEN
+
+é usado para encontrar o valor entre o valor mínimo e máximo.
+
+valor BETWEEN mínimo AND máximo;
+
+valor >= mínimo and valor <= máximo;
+
+SELECT *
+FROM Production.Product
+WHERE ListPrice between 1000 and 1500;
+
+SELECT *
+FROM Production.Product
+WHERE ListPrice NOT between 1000 and 1500;
+
+SELECT *
+FROM HumanResources.Employee
+where HireDate BETWEEN '2009/01/01' and '2010/01/01'
+order by HireDate
+
+---------------------------------------------
+
+AULA 09
+
+-- IN
+
+Operador normalmente utilizado junto com o WHERE,
+
+Para verificar se um valor corresponde com qualquer valor passado na lista de
+valoes.
+
+Valor in ( valor1,valor2)
+Valor IN (SELECT valor from NomedaTabela)
+
+---------------------------------------------
+
+SELECT *
+FROM Person.Person
+where BusinessEntityID in (2,7,13)
+
+SELECT *
+FROM Person.Person
+where BusinessEntityID NOT in (2,7,13)
+
+Usar o IN otimiza seu código e faz com que ele retorne mais rápido a informação
+do que usar mais linhas de código como no exemplo à seguir que retornaria o mesmo
+resultado:
+
+SELECT *
+FROM Person.Person
+where BusinessEntityID = 2
+OR BusinessEntityID = 7
+OR BusinessEntityID = 13
+
+-----------------------------------------------
+
+AULA 10 - LIKE
+
+Você precisa encontrar uma pessoa no banco de dados que você sabe que o nome dela
+era OVI...alguma coisa.
+
+SELECT *
+FROM Person.Person
+where FirstName like 'ovi%' -- você lembra o começo do nome e não lembra o final
+
+SELECT *
+FROM Person.Person
+where FirstName like '%to' -- você lembra o final do nome e não lembra o começo.
+
+SELECT *
+FROM Person.Person
+where FirstName like '%essa%' -- dessa forma ele completa o inicio e o final.
+
+SELECT *
+FROM Person.Person
+where FirstName like '%to' -- você lembra o final do nome e não lembra o começo.
+
+SELECT *
+FROM Person.Person
+where FirstName like '%ro_' - Quando você usa o _ ele busca ao limite de 1 caractere.
+por exemplo: SHARON -- no lugar do % entrou 3 caracteres e no lugar do _ entrou 1.
+
+------------------------------------------------------------------------------------
+
+
 
