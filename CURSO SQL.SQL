@@ -287,5 +287,71 @@ por exemplo: SHARON -- no lugar do % entrou 3 caracteres e no lugar do _ entrou 
 
 ------------------------------------------------------------------------------------
 
+AULA 11
 
+DESAFIO FUNDAMENTOS SQL
+
+1- Quantos produtos temos cadastrado no sistema que custam mais que 1500 dolares ?
+
+DiCAS: Usar a tabela production.product
+usar o count where e mais algum operador de comparação.
+
+R: 
+SELECT count(listprice)
+FROM Production.Product
+where ListPrice > 1500
+
+2- Quantas pessoas temos com o sobrenome que inicia com a Letra P ?
+
+DICAS: Usar a tabela person.person
+usar o Count, where e Like.
+
+R: 
+SELECT count(LastName)
+FROM person.Person
+where LastName like 'p%'
+
+3 - em quantas cidades unicas estão cadastrados nossos clientes ?
+
+DICAS: Usar a tabela person.Address
+usar o count, distinct.
+
+R:
+SELECT count(distinct(city))
+FROM person.Address
+
+4 - Quais são as cidades únicas cadastradas no sistema.
+Usar a tabela person.Address
+
+R:
+SELECT distinct(city)
+FROM person.Address
+
+5 - Quantos produtos vermelhos tem o preço entre 500 a 1000 dólares.
+
+DICAS: usar a tabela production.product
+Usar where e between.
+
+R:
+SELECT*
+FROM Production.Product
+where color = 'red' and ListPrice between 500 and 1000
+
+Correção:
+
+SELECT COUNT (*)
+FROM Production.Product
+where color = 'red' 
+and ListPrice between 500 and 1000 
+
+Comentário, falta de atenção ao resultado obtido e a proposta do enúnciado.
+
+6 - Quantos produtos cadastrados tem a palavra 'road' no nome deles ?
+
+DICAS: usar a tabela production.product
+usar count, like.
+
+R: SELECT count(*)
+FROM Production.Product
+where Name like '%road%'
 
