@@ -355,3 +355,94 @@ R: SELECT count(*)
 FROM Production.Product
 where Name like '%road%'
 
+-------------------------------------------------------------------------------
+
+AULA 12 - MIN MAX SUM AVG
+
+funções de agregação basicamente agregam ou combinam dados de uma tabela em 1 um 
+resultado só.
+
+exemplo de soma de uma coluna
+
+SELECT top 10 sum(linetotal)
+from sales.SalesOrderDetail
+
+podemos adicionar um apelido para essa nova coluna que foi criada à partir da soma
+dos dados, incluindo " as 'apelido' "
+
+exemplo:
+
+SELECT top 10 sum(linetotal) as 'Soma'
+from sales.SalesOrderDetail0
+
+-----
+
+podemos escolher também apenas o menor valor dessa coluna usando o operador Min
+
+SELECT top 10 min(linetotal)
+from sales.SalesOrderDetail
+
+ou o maior valor utilizando o operador MAX
+
+SELECT top 10 max(linetotal)
+from sales.SalesOrderDetail
+
+e podemos também retornar a média usando o operador AVG
+
+SELECT top 10 AVG(linetotal)
+from sales.SalesOrderDetail
+
+
+-------------------------------------------------------------------------------
+
+AULA 13 - GROUP BY
+
+- O Group BY basicamente divide o resultado da sua pesquisa em grupos
+- Para cada grupo você pode aplicar uma função de agregação, por exemplo:
+    -Calcular a soma de itens
+    -Contar o número de itens naquele grupo.
+
+Exemplo:
+SELECT coluna1,funcaoAgregacao(coluna2)
+FROM NomedaTabela
+GROUP BY Coluna1;
+
+SELECT *
+FROM SALES.SalesOrderDetail
+
+SELECT SpecialOfferID, SUM(UnitPrice) as 'SOMA'
+FROM Sales.SalesOrderDetail
+GROUP BY SpecialOfferID
+
+SELECT SpecialOfferID
+FROM Sales.SalesOrderDetail
+WHERE SpecialOfferID = 9 
+
+-- Quantos cada produto foi vendido até hoje?
+
+SELECT ProductID, Count( ProductID) as 'contagem'
+FROM Sales.SalesOrderDetail
+GROUP BY ProductID
+
+-- Quantos nomes de cada nome temos cadastrado no banco de dados ?
+
+SELECT FirstName, count(firstname) as 'contagem'
+FROM Person.Person
+Group By FirstName
+
+-- Na tabela production.product eu quero saber a média de preço para os produtos que
+--são prata ( silver )
+
+SELECT color, avg(listprice) as 'preço'
+FROM Production.Product
+where Color = 'Silver'
+Group by color
+
+DESAFIOS 
+
+
+
+
+
+
+
