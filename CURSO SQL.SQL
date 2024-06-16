@@ -440,6 +440,64 @@ Group by color
 
 DESAFIOS 
 
+1 - Quantas pessoas tem o mesmo MiddleName Agrupadas por o MiddleName
+DICAS: usar tabela Person.Person
+usar Group BY e uma função de agregação.
+
+R:
+SELECT MiddleName,sadasdamiddlename) as 'Same MiddleName'
+From Person.Person
+Group by MiddleName 
+
+2 - Qual é a média da quantidade(quantity) que cada produto é vendido na loja.
+DICAS: Usar tabela sales.SalesOrderDetail
+Usar group BY e uma função de agregação.
+
+R:
+SELECT OrderQty, avg(orderQty) as 'Media'
+FROM sales.SalesOrderDetail
+group by OrderQty
+
+Correção
+
+SELECT ProductID, avg(orderQty) as 'Media'
+FROM sales.SalesOrderDetail
+group by ProdutctID
+
+3- Qual foram as 10 vendas que no total tiveram os maiores valores de venda
+(line total) por produto do maior valor para o menor.
+DICAS: Usar a tabela Sales.SalesOrderDetail
+Se atentar a por que você está ordenando.
+
+R:
+SELECT top 10 LineTotal
+FROM sales.SalesOrderDetail
+Group By LineTotal
+Order by LineTotal Desc
+
+Correção:
+
+SELECT top 10 ProductID, Sum(linetotal) as 'Soma'
+FROM sales.SalesOrderDetail
+Group By ProductID
+Order by SUM(Linetotal) Desc;
+
+4 - Quantos produtos e qual a quantidade média de produtos temos cadastrados nas nossas ordens 
+de serviço (WorkerOrder), agrupados por ProductID
+
+DICAS: Usar a tabela Production.WorkerOrder
+Usar GroupBy e uma função de agregação.
+
+R: 
+SELECT Count(ProductID), avg (WorkOrderID) as 'média'
+FROM Production.WorkOrder
+Group by ProductID
+
+Correção:
+SELECT ProductID, Count(Productid) 'contagem',
+Avg(orderqty) as 'Media'
+FROM Production.WorkOrder
+Group by ProductID
 
 
 
