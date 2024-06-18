@@ -499,6 +499,60 @@ Avg(orderqty) as 'Media'
 FROM Production.WorkOrder
 Group by ProductID
 
+-----------------------------------------------------------------------------
+
+AULA 14 - HAVING
+
+é usado juntamento com GROUP BY para filtrar resultados de um agrupamento.
+
+de uma forma mais simples é um WHERE para dados agrupados.
+
+SELECT Coluna1, FuncaoAgregação (coluna2)
+FROM nameTabela
+GROUP BY Coluna1
+HAVING condicao;
+
+A GRANDE DIFERENÇA ENTRE HAVING e WHERE
+é que o GROUP BY é aplicado depois que os dados já foram agrupados, enquanto O
+WHERE é aplicado antes dos dados serem agrupados.
+
+Vamos dizer que queremos saber quais nomes no sistema tem uma ocorrência maior
+que 10 vezes.
+
+SELECT FirstName, Count(FirstName) as "quantidade"
+from person.Person
+group by FirstName
+having count(firstname) > 10.
+
+Não seria possível fazer isso usando o Where, por exemplo:
+
+ELECT FirstName, Count (firstName) as "Quantidade"
+From Person.person
+where Count(FirstName) > 10
+
+vai dar erro por que é necessário usar uma função para fazer uma filtragem extra em dados já filtrados.
+
+"segundo nível de filtro"
+
+-- Por exemplo quais produtos que no total de vendas estão entre 162k a 500k
+
+SELECT top 10 *
+From Sales.SalesOrderDetail
+
+SELECT Productid, Sum(linetotal) as "total"
+FROM sales.SalesOrderDetail
+GRoup BY ProductID
+HAVING SUM(linetotal) between 162000 and 500000
+
+-- Quais nomes no sistema tem uma ocorrencia maior que 10 vezes, porem somente 
+--onde o título é 'Mr.'
+
+SELECT FirstName, Count(firstname) as 'quantidade'
+FROM Person.Person
+where Title = 'Mr.'
+Group by FirstName
+having Count(FirstName) > 10
+
 
 
 
