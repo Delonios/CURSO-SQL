@@ -553,6 +553,46 @@ where Title = 'Mr.'
 Group by FirstName
 having Count(FirstName) > 10
 
+DESAFIOS ( nível intermediário ):
+
+1 - Estamos querendo identificar as provincias (stateProvinceId) com o maior 
+número de cadastros no nosso sistema, então é preciso encontrar quais províncias
+(stateProvinceId) estão registradas no banco de dados mais que 1000 vezes.
+DICAS: usar tabela person.Address
+Usar having, count e operadores matemáticos.
+
+R:
+SELECT StateProvinceID, count(stateProvinceID) 'contagem'
+from Person.Address
+group by StateProvinceID
+having sum(StateProvinceID) >= 1000
+
+Correção:
+
+SELECT StateProvinceID, count(stateProvinceID) 'contagem'
+from Person.Address
+group by StateProvinceID
+having COUNT(StateProvinceID) > 1000
+
+2 -  Sendo que se trata de uma multinacional os gerentes querem saber quais produtos
+(productID) não estão trazendo em média no mínimo 1 milhão em total de vendas ( lineTotal)
+DICAS: Usar tabela sales.SalesOrderDetail
+usar having, count, e operadores matemáticos 
+
+R:
+SELECT ProductID, AVG (linetotal)
+FROM Sales.SalesOrderDetail
+GROUP BY Linetotal
+Having Avg (lineTotal) > 100000
+
+Correção:
+
+SELECT ProductID, AVG (linetotal)
+FROM Sales.SalesOrderDetail
+GROUP BY ProductID
+Having Avg (lineTotal) < 1000000
+
+
 
 
 
