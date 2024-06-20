@@ -592,6 +592,41 @@ FROM Sales.SalesOrderDetail
 GROUP BY ProductID
 Having Avg (lineTotal) < 1000000
 
+Aula 15 - AS
+
+As serve para renomear colunas e selects.
+
+Exemplos:
+
+SELECT TOP 10 listprice 'preço'
+from Production.Product
+
+renomeia o ListPrice para preço
+
+SELECT TOP 10 avg( listprice) 'preço médio'
+from Production.Product
+
+
+Desafio:
+
+1 - Encontrar o FirstName e o LastName na tabela Person.Person e renomear para o portugues.
+R:
+SELECT FirstName as "Primeiro Nome", LastName as "Sobrenome"
+from Person.Person
+
+2 - ProductNumber da table producion.product "Número do Produto"
+R: 
+SELECT ProductNumber as "Número do produto"
+from Production.Product
+
+3 - Sales.SalesOrderDetail UnitPrice "Preço Unitário"
+R:
+SELECT UnitPrice as "preço unitário"
+from Sales.SalesOrderDetail
+
+
+
+
 
 
 
