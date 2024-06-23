@@ -625,6 +625,72 @@ SELECT UnitPrice as "preço unitário"
 from Sales.SalesOrderDetail
 
 
+Aula - 16 INNER JOIN
+
+Exitem 3 tipos de Joins: INNER JOIN, OUTER JOIN e SELF JOIN. Normalmente utilizados para juntos informações
+complementares entre tabelas, por exemplo em uma tabela com dados de clientes tem o Nome do Clinete,
+o ID do Cliente e o EndereçoID, e em outra trabela tem O EndereçoID o Nome da Rua do cliente e a cidade.
+Usando Join podemos complementar dados de uma tabela com dados de outra tabela.
+
+SELECT C.ClienteID, C.Nome, E.Rua, E.Cidade
+FROM Clinete C
+INNER JOIN Endereco E ON E.EnderecoID = C.EnderecoId
+
+-- BusinessEntityId, FirstName, LastName, EmailAdress
+SELECT TOP 10*
+FROM Person.Person
+
+SELECT TOP 10*
+FROM Person.EmailAddress
+
+---------------------------------------------------------
+
+SELECT p.BusinessEntityID,p.FirstName,p.LastName, pe.EmailAddress
+FROM Person.Person as 
+INNER JOIN Person.EmailAddress PE on p.BusinessEntityID = pe.BusinessEntityID
+
+------------------------------------------------------------
+
+Vamos dizer que nós queremos os nomes dos produtos e as informações
+de suas subcategorias
+ListPrice, Nome do produto, Nome da subcategoria.
+
+SELECT TOP *
+FROM Product.Product
+
+SELECT TOP 10 *
+FROM Production.ProductSubCategory
+
+-----------------------------------------------------------------------------
+
+Select Top 10 *
+FROM person.BusinessEntityAdress
+
+Select top 10 *
+FROM Person.Address 
+
+## Quando nós juntamos todas as colunas de 2 tabelas em uma linha, chamamos de PLANO CARTESIANO. ##
+
+SELECT top 10 * ( aqui nao foi especificado quais colunas nós queremos selecionar, então serão mostradas todas as colunas que possuam dados)
+FROM   Person.BusinessEntityAdress BA 
+INNER JOIN Person.Address PA ON PA.AddressID = BA.AddressID
+
+ - DESAFIO 
+
+
+Trazer uma tabela com os seguintes dados Nessa ordem:
+
+ -- BusinesEntityID, Name, PhoneNumberTypeId, PhoneNumber
+
+SELECT TOP 10 *
+FROM Person.PhoneNumberType
+
+SELECT TOP 10 *
+FROM person.PersonPhone
+
+DICAS: USAR TABELAS PERSON.PhoneNumberType e person.PersonPhone
+USAR O JOIN ENCONTRANDO QUAIS COLUNAS TEM EM COMUM NAS DUAS TABELAS.
+
 
 
 
