@@ -712,7 +712,47 @@ Select PA.AddressID, PA.City, PSP.StateProvinceID, PSP.Name
 FROM Person.Address PA
 INNER JOIN Person.StateProvince PSP ON PSP.StateProvinceID = PA.StateProvinceID
 
+Aula 17 - Conceito de Joins
 
+Inner Join
+
+Retorna apenas os Resultados que correspondem ( existem ) tanto na tabela A como
+na Tabela B.
+(ou seja, ele poe só o que tem em comum na A e na B).
+EX.
+
+SELECT *
+FROM tabelaA
+Inner JOIN TabelaB On TabelaA.nome = TabelaB.nome
+id | nome   | id | nome
+1    ROBO     2    ROBO
+3    Samurai  4    Samurai
+
+Full OUTER JOIN 
+Retorna um conjunto de todos os registros correspondentes da tabelaA e tabelaB quando são iguais. 
+E além disso se Não houver valoes correspondentes, ele simplesmente ira
+preencher esse lado com "null".
+(Ou seja, ele poe tudo que tem só na tabela A, tudo que tem em comum entre A e B
+e tudo que tem só na B também, preenchendo as colunas vazias com Null).
+
+id | nome   | id | nome
+1    ROBO     2    ROBO
+2    Macaco   Null Null
+3    Samurai  4    Samurai
+Null Null     1    ESPADA
+
+LEFT OUTER JOIN
+
+Retorna um conjunto de todos os registros da TabelaA, e além disso, os registros
+correspondentes ( quando disponíveis ) na tabelaB. Se não houver registros 
+correspondentes ele simplesmente vai preencher com "null". ( ou seja ele poe tudo
+que tem na A e tudo que tem em comum entre A e B mas nao poe o que só tem na B).
+
+id | nome   | id | nome
+1    ROBO     2    ROBO
+2    Macaco   Null Null
+3    Samurai  4    Samurai
+4    Monitor  null null
 
 
 
