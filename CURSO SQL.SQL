@@ -646,7 +646,7 @@ FROM Person.EmailAddress
 ---------------------------------------------------------
 
 SELECT p.BusinessEntityID,p.FirstName,p.LastName, pe.EmailAddress
-FROM Person.Person as 
+FROM Person.Person as P
 INNER JOIN Person.EmailAddress PE on p.BusinessEntityID = pe.BusinessEntityID
 
 ------------------------------------------------------------
@@ -675,12 +675,13 @@ SELECT top 10 * ( aqui nao foi especificado quais colunas nós queremos selecion
 FROM   Person.BusinessEntityAdress BA 
 INNER JOIN Person.Address PA ON PA.AddressID = BA.AddressID
 
- - DESAFIO 
+- DESAFIO 
 
+1.
 
 Trazer uma tabela com os seguintes dados Nessa ordem:
 
- -- BusinesEntityID, Name, PhoneNumberTypeId, PhoneNumber
+-- BusinesEntityID, Name, PhoneNumberTypeId, PhoneNumber
 
 SELECT TOP 10 *
 FROM Person.PhoneNumberType
@@ -690,6 +691,26 @@ FROM person.PersonPhone
 
 DICAS: USAR TABELAS PERSON.PhoneNumberType e person.PersonPhone
 USAR O JOIN ENCONTRANDO QUAIS COLUNAS TEM EM COMUM NAS DUAS TABELAS.
+
+R:
+SELECT TOP 10*
+FROM Person.PhoneNumberType
+
+Select top 10 *
+From Person.PersonPhone
+
+Select pp.BusinessEntityID, ppt.name, ppt.PhoneNumberTypeID, pp.PhoneNumber
+from Person.personPhone PP
+INNER JOIN Person.PhoneNumberType PPT on PPT.PhoneNumberTypeID = pp.PhoneNumberTypeID
+
+2.
+
+Trazer o AddressID, City, StateProvinceID, Name (nome do estado.)
+
+R: 
+Select PA.AddressID, PA.City, PSP.StateProvinceID, PSP.Name
+FROM Person.Address PA
+INNER JOIN Person.StateProvince PSP ON PSP.StateProvinceID = PA.StateProvinceID
 
 
 
