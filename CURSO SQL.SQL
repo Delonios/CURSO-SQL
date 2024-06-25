@@ -754,6 +754,37 @@ id | nome   | id | nome
 3    Samurai  4    Samurai
 4    Monitor  null null
 
+Aula 18 - OUTER JOIN
+
+Left outer JOIN ou Left Join
+
+Como descobrir quais pessoas tem um cartão de crédito registrado
+
+SELECT *
+From Person.Person pp
+Inner JoIN Sales.PersonCreditCard PC
+ON pp.BusinessEntityID = pc.BusinessEntityID
+-- com Inner Join tivemos um resultado com 19118 linhas podendo estar 
+-- excluindo linhas.
+-- Com o Left Join tivemos 19972 o que sigfnica que ele incluiu dados mesmo 
+-- onde não estão presentes dados da segunda tabela que nesse caso era o person.creditcard
+
+Ou seja, 854 pessoas que não tem cartão de crédito registrado.
+
+para extrair os dados dessas pessoas que não tem cartão de crédito registrado,
+devemos montar a seguinte Query:
+
+SELECT *
+From Person.Person pp
+left JoIN Sales.PersonCreditCard PC
+ON pp.BusinessEntityID = pc.BusinessEntityID
+where pc.BusinesEntityID is Null
+
+
+
+
+
+
 
 
 
