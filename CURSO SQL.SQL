@@ -853,3 +853,28 @@ from Production.ProductInventory
 where Shelf = 'A'
 order by Shelf asc
 
+Aula 20 - Self Join
+
+-- Select Nome_coluna
+-- FROM TABELA A, Tabela B
+-- Where Condição
+
+-- Vamos selecionar todos os clientes que moram na mesma região
+
+Select A.Contactname, A.Region, B.contactName,B.Region
+From Customers A, Customers B
+Where A.region = B.Region
+
+-- Vamos encontrar o nome e a data de contratação de todos os funcionários 
+-- que foram contratados no mesmo ano.
+
+Select A.firstName, A.hireDate, B.firstname, b.hiredate
+FROM Employees A, Employees B
+Where Datepart(YEAR,A.hiredate) = DATEPART(Year,b.hiredate)
+
+DESAFIO:
+
+Na tabela detalhe do pedido [ order details ] quais produtos tem o mesmo percentual de desconto ?
+
+
+
