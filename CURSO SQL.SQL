@@ -780,14 +780,76 @@ left JoIN Sales.PersonCreditCard PC
 ON pp.BusinessEntityID = pc.BusinessEntityID
 where pc.BusinesEntityID is Null
 
+Aula 19 - Union
+
+O operador Union combina dois ou mais resultados de um select em um resultado apenas.
+
+Estrutura do UNION:
+
+Select Coluna1, coluna2
+FROM Tabela1
+Union
+Select Coluna1, Coluna2
+From Tabela2
+
+ou também Union ALL que permite que você junte as informações incluindo os dados duplicados
+
+SELECT [ProductID], [name], [productNumber]
+From Production.Product where name like '%Chain%'
+Union
+SELECT [ProductID], [name], [productNumber]
+From Production.Product where name like '%Decal%'
+
+320	Chainring Bolts	CB-2903
+321	Chainring Nut	CN-6137
+322	Chainring	    CR-7833
+324	Chain Stays	    CS-2812
+325	Decal 1	        DC-8732
+326	Decal 2	        DC-9824
+952	Chain	        CH-0234
 
 
+Juntou ↓↓↓
+952	Chain	        CH-0234
+324	Chain Stays  	CS-2812
+322	Chainring	    CR-7833
+320	Chainring Bolts	CB-2903
+321	Chainring Nut	CN-6137
+
+Com ↓↓↓
+325	Decal 1	DC-8732
+326	Decal 2	DC-9824
+
+----------------------------------
+
+Para complementar podemos dar Order By name desc ou asc
+
+SELECT [ProductID], [name], [productNumber]
+From Production.Product where name like '%Chain%'
+Union
+SELECT [ProductID], [name], [productNumber]
+From Production.Product where name like '%Decal%'
+Order By name asc
+
+952	Chain	        CH-0234
+324	Chain Stays	    CS-2812
+322	Chainring	    CR-7833
+320	Chainring Bolts	CB-2903
+321	Chainring Nut	CN-6137
+325	Decal 1	        DC-8732
+326	Decal 2	        DC-9824
 
 
+Desafio:
 
+Encontrar e juntar 2 tabelas do banco de dados. ( escolha livre ).
 
-
-
-
-
+Select ProductID, Shelf, LocationID
+from Production.ProductInventory
+Where ProductID <= 100
+Union
+Select ProductID, Shelf, LocationID
+from Production.ProductInventory
+where Shelf = 'A'
+order by Shelf asc
 
