@@ -881,4 +881,68 @@ SELECT A.ProductID, A.discount, B.ProductID,B.discount
 From [Order Details] A, [Order Details] B
 where A.Discount = B.Discount
 
+Aula 21 - Subquery ( subselect ) - Avançado
+
+monte um relatório de todos os produtos cadastrados que tem o preço de venda acima da 
+média.
+
+Pra saber a média faria:
+
+SELECT AVG(listprice)
+FROM Production.Product
+
+Guardaria o preço da média, e depois faria um segundo filtro dos que estão acimad a média:
+
+SELECT *
+FROM Production.Product
+WHere ListPrice > 438.66
+
+Uma forma mais dinamica de fazer isso é usar o subselect.
+
+SELECT *
+FROM Production.Product
+where listprice > (SELECT AVG(listPrice) from Production.product)
+
+--------------------------------------------------------------------------------
+
+Gostaria de descobrir qual o nome dos meus funcionários que tem o cargo 'Design Engineer'
+
+SELECT *
+FROM person.Person
+
+SELECT *
+FROM HumanResources.Employee
+where JobTitle = 'Design Engineer'
+
+encontrar a coluna que tem essa informação e fazer o seguinte filtro
+
+SELECT *
+FROM person.Person
+where BusinesEntityID in (5,6,15)
+
+
+para ter uma pesquisa dinâmica ( sem dados fixos [5,6,15]) podemos fazer o subselect.
+
+SELECT FirstName
+FROM Person.Person
+where BusinessEntityID in (
+select BusinessEntityID from HumanResources.Employee 
+where JobTitle = 'Design Engineer')
+
+-- outra forma de fazer isso é com Inner Join:
+
+Select P.Firstname
+from Person.person P
+Inner Join HumanResources.Employee E on P.BusinessEntityID = E.BusinessEntityID
+and E.JobTitle = 'Design Engineer'
+
+DESAFIO
+
+Encotrar todos os endereços que estão no estado de 'Alberta', 
+
+DICAS: usar a tabela Person.Adress e também Person.StateProvince
+
+
+
+
 
