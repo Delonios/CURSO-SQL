@@ -941,8 +941,20 @@ DESAFIO
 Encotrar todos os endereços que estão no estado de 'Alberta', 
 
 DICAS: usar a tabela Person.Adress e também Person.StateProvince
+R:
 
+Select *
+FROM person.address
 
+Select *
+From person.StateProvince
+
+Para checkar qual coluna existe em comum entre as tabelas e ai montar o seguinte Subquery ( subselect )
+
+SELECT AddressLine1
+FROM Person.Address
+Where StateProvinceID in ( SELECT StateProvinceID 
+FROM Person.StateProvince where name = 'alberta')
 
 
 
