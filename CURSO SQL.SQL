@@ -876,5 +876,9 @@ DESAFIO:
 
 Na tabela detalhe do pedido [ order details ] quais produtos tem o mesmo percentual de desconto ?
 
+R:
+SELECT A.ProductID, A.discount, B.ProductID,B.discount
+From [Order Details] A, [Order Details] B
+where A.Discount = B.Discount
 
 
