@@ -956,5 +956,40 @@ FROM Person.Address
 Where StateProvinceID in ( SELECT StateProvinceID 
 FROM Person.StateProvince where name = 'alberta')
 
+Aula 22 Datepart 
 
+Biblioteca Datepart:
+
+-- https://learn.microsoft.com/pt-br/sql/t-sql/functions/datepart-transact-sql?view=sql-server-ver16
+
+
+Datepart é a Sintaxe para extrair (filtrar) uma informação de uma determinada coluna da tabela,
+por exemplo na coluna OrderDate, temos o dia o mes e o ano -> 2011-05-31
+
+Podemos usar um comando para extrair apenas o ano o dia ou o mês como no exemplo a baixo:
+ 
+select SalesOrderID, DATEPART(month,OrderDate) as Mes
+from Sales.SalesOrderHeader
+
+que nos retornará  o SalesOrderID e o Mes 
+SalesOrderID | Mes 
+43659	        5
+43660	        5
+43661	        5
+43662           5
+
+Exemplo de uso:
+
+SELECT Avg (TotalDue) as Media, Datepart (month, OrderDate) as Mes
+From sales.SalesOrderheader
+Group by datepart ( month, orderdate)
+order By mes
+
+DESAFIO
+
+Extrair o mes e ano de uma tabela da sua escolha no banco de dados
+
+Select ProductID, Datepart(month,DueDate) as Mes, Datepart(year,DueDate) as Ano
+from Purchasing.PurchaseOrderDetail
+order By ano, mes
 
