@@ -993,3 +993,80 @@ Select ProductID, Datepart(month,DueDate) as Mes, Datepart(year,DueDate) as Ano
 from Purchasing.PurchaseOrderDetail
 order By ano, mes
 
+Aula 23 - Manipulação de String
+
+Biblioteca String - Funções de cadeia de caracteres ( lista de funções de string )
+
+https://learn.microsoft.com/pt-br/sql/t-sql/functions/string-functions-transact-sql?view=sql-server-ver16
+
+Um exemplo de aplicaçao é a juntação de duas colunas, "concatenar os dados" 
+
+SELECT Concat (FirstName, ' ', lastName) as 'nome e sobrenome'
+From Person.person
+Syed Abbas
+Catherine Abel
+Kim Abercrombie
+Kim Abercrombie
+
+Já para trazer todos os dados de uma coluna em letra maiúscula ou minúscula usamos o manipulador de string Upper e Lower
+
+SELECT Upper(Firstname), Lower(LastName)
+From Person.person
+
+Ou então para contar o número de caracteres podemos utilizar o KEN
+
+SELECT Firstname, LEN(Firstname)
+From Person.person
+
+Substring:
+
+Subquery utizado para extrair uma porção da informação contida no string da coluna filtrada.
+
+por exemplo:
+
+SELECT Firstname, SUBSTRING(FirstName, 1,3)
+From Person.person
+
+Syed	    Sye
+Catherine	Cat
+Kim	        Kim
+Kim	        Kim
+
+Retornou as 3 primeiras letras da coluna FirstName.
+
+
+REPLACE:
+
+Serve para modificar um caractere dentro de uma string de uma coluna filtrada.
+
+por exemplo, vamos substituir o traço por *
+
+SELECT replace(ProductNumber, '-','*')
+From Production.Product
+
+Nos Retornou
+
+AR*5381
+BA*8327
+BB*7421
+BB*8107
+BB*9108
+
+ao invés de
+
+AR-5381
+BA-8327
+BB-7421
+BB-8107
+BB-9108
+
+DESAFIO:
+
+Colocar em prática em qualquer tabela da sua escolha os conceitos de:
+
+Concat
+LEN
+Lower
+Upper
+Substring
+Replace
