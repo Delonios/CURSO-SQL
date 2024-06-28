@@ -1131,3 +1131,39 @@ From Production.Product
     94506C9D-5991-46A7-82EA-00E05D8D9B9C |	94506C9D      5991      46A7      82EA      00E05D8D9B9C
     CA74B54E-FC30-4464-8B83-019BFD1B2DBB |	CA74B54E      FC30      4464      8B83      019BFD1B2DBB
     89B6E84F-5C08-4CD9-B803-01F2CE24E417 |	89B6E84F      5C08      4CD9      B803      01F2CE24E417
+
+
+-------------------------------------------------------------------------
+
+Aula 24 - Operações Matemáticas
+
+Funções matemáticas SQL Server.
+
+Funções matemáticas entre colunas, por exemplo:
+
+Select UnitPrice - Linetotal (subtração)
+from Sales.SalesOrderdetail
+
+Select UnitPrice + Linetotal (Soma)
+from Sales.SalesOrderdetail
+
+Select UnitPrice * Linetotal (multiplicação)
+from Sales.SalesOrderdetail
+
+Select UnitPrice / Linetotal (divisão)
+from Sales.SalesOrderdetail
+
+DESAFIO
+
+Entrar em alguma planílha do banco de dados e utilizar a função ROUND.
+
+Select listprice, ROUND(listprice,0)
+from Production.ProductListPriceHistory
+
+33,6442	34,00
+33,6442	34,00
+34,99	35,00
+
+
+
+
