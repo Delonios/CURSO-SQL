@@ -1211,6 +1211,52 @@ TIME - Horas, minutos, segundos e milissegundos respeitando
 o limite de '00:00:00.0000000' to '23:59:59.9999999'
 DATETIMEOFFSET - Permite armazenar informações de data e horas incluindo o fuso horário.
 
+AULA 26 - CHAVES PRIMáRIAS e ESTRANGEIRAS -
+
+- Uma chave primária é basicamente uma coluna ou grupo de colunas, usada para identificar
+unicamente uma linha em tabela.
+- você consegue criar essas chaves primárias através de restrições ( ou constraints em inglês), 
+que são regras que você define quando está criando um índice único para aquela coluna
+ou grupo de colunas.
+
+Create Table Nome_Tabela ( 
+    NomeColuna, tipodedados PRIMARY KEY
+    NomeColuna, tipodedados ...
+)
+
+------------------------------------------------------------------------------------------------------------------
+
+- Uma Chave estrangeira é uma coluna ougrupo de colunas em uma tabela que identifica unicamente
+uma linha em outra tabela.
+
+- ou seja, uma chave estrangeira é definida em uma tabela onde ela é apenas uma referência e não contém todos os dados ali
+
+- Então uma chave estrangeira é simplesmente uma coluna ou grupo de colunas que é uma chave primária em outra tabela.
+
+- A tabela que contem a chave estrageira é chamada de tavela referênciadora ou tabela filho. E a tabela na qual a chave 
+estrangeira é referenciada é chamada de tabela referenciada ou tabela pai.
+
+- Uma tabela pode ter mais de uma chave estrangeira dependendo do seu relacionamento com as outras tabelas.
+
+-----------------------------------------------------------------------------------------------------------------------
+
+- No SQL server você define uma chave estrangeira atravez de um "Foreign Key Constraint" ou restrição de chave estrangeira.
+
+- Uma restrição de chave estrangeira indica que os valores em uma coluna ou grupo de colunas na tabela filho correspondem 
+aos valores na tabela pai.
+
+- Nós podemos entender que uma chave estrangeira mantém a "integridade referencial ".
+
+Desafio 
+
+encontrar todos os exemplos de Foreign Key e Primary Key no banco de dados.
+
+
+
+
+
+
+
 
 
 
