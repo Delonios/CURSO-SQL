@@ -1025,7 +1025,8 @@ Subquery utizado para extrair uma porção da informação contida no string da 
 por exemplo:
 
 SELECT Firstname, SUBSTRING(FirstName, 1,3)
-From Person.person
+ From Person.person        (Coluna(FirstName),inicio(1 sigfnica primeira letra), numero de caracteres coletados(3 letrar))
+
 
 Syed	    Sye
 Catherine	Cat
@@ -1064,9 +1065,69 @@ DESAFIO:
 
 Colocar em prática em qualquer tabela da sua escolha os conceitos de:
 
-Concat
+Concat:
+
+Select Addressline1, PostalCode, Concat(AddressLine1, ' ', PostalCode) as 'Endereço e CEP'
+From Person.Address
+
+#500-75 O'Connor Street     |  	K4B 1S2 |	#500-75 O'Connor Street K4B 1S2
+#9900 2700 Production Way	|   V5A 4X1	|   #9900 2700 Production Way V5A 4X1
+
+
+-------------------------------------------------------------------------
+
 LEN
+Select len(passwordHash) as 'Password Size'
+From Person.Password
+
+44
+44
+44
+
+-------------------------------------------------------------------------
+
 Lower
+
+Select Lower(firstname)
+From Person.Person
+
+syed
+catherine
+kim
+kim
+kim
+
+-------------------------------------------------------------------------
+
 Upper
+
+Select Upper (rowguid)
+From Person.Person
+
+AAC965D2-6E72-441E-AE35-0004C710BD47
+BA2745E9-2735-4A61-A717-000CE977B267
+1972DBC5-A82F-4AD2-A992-000D06DD049C
+
+-------------------------------------------------------------------------
+
 Substring
+
+Select LastName, SUBSTRING(lastname,4,3)
+From Person.Person
+
+Abbas	    as
+Abel	    l
+Abercrombie	rcr
+Abercrombie	rcr
+
+-------------------------------------------------------------------------
+
 Replace
+
+Select rowguid, replace(rowguid,'-','      ')
+From Production.Product
+
+    7A927632-99A4-4F24-ADCE-0062D2D113D9 |	7A927632      99A4      4F24      ADCE      0062D2D113D9
+    94506C9D-5991-46A7-82EA-00E05D8D9B9C |	94506C9D      5991      46A7      82EA      00E05D8D9B9C
+    CA74B54E-FC30-4464-8B83-019BFD1B2DBB |	CA74B54E      FC30      4464      8B83      019BFD1B2DBB
+    89B6E84F-5C08-4CD9-B803-01F2CE24E417 |	89B6E84F      5C08      4CD9      B803      01F2CE24E417
