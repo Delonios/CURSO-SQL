@@ -1164,6 +1164,61 @@ from Production.ProductListPriceHistory
 33,6442	34,00
 34,99	35,00
 
+--------------------------------------------------------------------------------
+
+Aula 25 - Tipos de dados
+
+BOLEANOS
+caracteres
+NÚMEROS
+TEMPORAIS
+
+-- Boleanos
+
+Por padrão ele é inicializado como nulo, e pode receber tanto 1 ou 0
+BIT
+
+-- Caracteres
+
+ Tamanho Fixo - Char // permite inserir até uma quantidade fixa de caracteres 
+e sempre ocupa todo o espaço reservado 10/50
+
+Tamanhos variáveis - varchar ou nvarchar // permite inserir até uma quantidade que for definida, porém 
+só usa o espaço que for preenchido 10/50
+
+-- Números
+
+Valores exatos: 
+Tinyint  Não tem parte do valor fracionados, ( ex:> 1.43, 24.23) somente valores inteiros
+Smallint - mesma coisa porém com um limite maior.
+Int - Mesma coisa porém com limete maior.
+Bigint - mesma coisa porém com um limite maior.
+Numeric ou decimal - valores exatos, porém permite ter parte fracionados, que também pode ser especificado
+a precisão e escala ( escala é o numero de digitos na parte fracional ) -  ex: Numeric (5,2) 113,44
+
+-- Valores aproximados 
+
+1. REAL - Tem precisão aproximada de até 15 digitos após a virgula.
+2. FLOAT - mesmo conceito de REAL
+
+-- Temporais
+
+DATE - armazena data no formato AAAA/MM/DueDate
+DATETIME - armazena data e horas no formato AAAA/mm/dd hh:mm:ss
+DATETIME2 - Data e horas com adição de milissegundos no formato aaaa/mm/dd hh:mm:sssss
+SMALLDATETIME - data e hora nos respeitando o limite entre '1900-01-01:00:00:00' até '2079-06-06:23:59:59'
+TIME - Horas, minutos, segundos e milissegundos respeitando 
+o limite de '00:00:00.0000000' to '23:59:59.9999999'
+DATETIMEOFFSET - Permite armazenar informações de data e horas incluindo o fuso horário.
+
+
+
+
+
+
+
+
+
 
 
 
