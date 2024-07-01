@@ -54,7 +54,7 @@ FROM Production.Product
 WHERE color <> 'red'
 
 
-AULA 4
+-- AULA 4
 
 
 -- exercício 1
@@ -105,7 +105,7 @@ Depois pesquisar pela informação do BusinessEntityID na tabela EmailAddress.
 Na primeira tabela tinha o ID dele que é 26, e através do 26 conseguimos encontrar 
 o email correspondente. Ou seja, ID 26 é o Peter Krabs na tabela BusinessEntityID.
 
-Aula 05 - Count
+-- Aula 05 - Count
 
 -- Count
 SELECT COUNT(*)
@@ -144,7 +144,7 @@ FROM Production.Product
 
 R: 18.
 
-AULA 06
+-- AULA 06
 
 -- TOP
 
@@ -153,7 +153,7 @@ FROM Production.Product
 
 -- retorna o os 10 primeiros itens da tabela. 
 
-Aula 07
+-- Aula 07
 
 -- ORDER BY
 
@@ -200,7 +200,7 @@ SELECT TOP 4 name, productNumber
 FROM Production.Product
 ORDER BY ProductID asc
 
-AULA 08 
+-- AULA 08 
 
 -- BETWEEN
 
@@ -225,7 +225,7 @@ order by HireDate
 
 ---------------------------------------------
 
-AULA 09
+-- AULA 09
 
 -- IN
 
@@ -259,7 +259,7 @@ OR BusinessEntityID = 13
 
 -----------------------------------------------
 
-AULA 10 - LIKE
+-- AULA 10 - LIKE
 
 Você precisa encontrar uma pessoa no banco de dados que você sabe que o nome dela
 era OVI...alguma coisa.
@@ -287,7 +287,7 @@ por exemplo: SHARON -- no lugar do % entrou 3 caracteres e no lugar do _ entrou 
 
 ------------------------------------------------------------------------------------
 
-AULA 11
+-- AULA 11
 
 DESAFIO FUNDAMENTOS SQL
 
@@ -357,7 +357,7 @@ where Name like '%road%'
 
 -------------------------------------------------------------------------------
 
-AULA 12 - MIN MAX SUM AVG
+-- AULA 12 - MIN MAX SUM AVG
 
 funções de agregação basicamente agregam ou combinam dados de uma tabela em 1 um 
 resultado só.
@@ -395,7 +395,7 @@ from sales.SalesOrderDetail
 
 -------------------------------------------------------------------------------
 
-AULA 13 - GROUP BY
+-- AULA 13 - GROUP BY
 
 - O Group BY basicamente divide o resultado da sua pesquisa em grupos
 - Para cada grupo você pode aplicar uma função de agregação, por exemplo:
@@ -501,7 +501,7 @@ Group by ProductID
 
 -----------------------------------------------------------------------------
 
-AULA 14 - HAVING
+-- AULA 14 - HAVING
 
 é usado juntamento com GROUP BY para filtrar resultados de um agrupamento.
 
@@ -592,7 +592,7 @@ FROM Sales.SalesOrderDetail
 GROUP BY ProductID
 Having Avg (lineTotal) < 1000000
 
-Aula 15 - AS
+-- Aula 15 - AS
 
 As serve para renomear colunas e selects.
 
@@ -625,7 +625,7 @@ SELECT UnitPrice as "preço unitário"
 from Sales.SalesOrderDetail
 
 
-Aula - 16 INNER JOIN
+-- Aula - 16 INNER JOIN
 
 Exitem 3 tipos de Joins: INNER JOIN, OUTER JOIN e SELF JOIN. Normalmente utilizados para juntos informações
 complementares entre tabelas, por exemplo em uma tabela com dados de clientes tem o Nome do Clinete,
@@ -712,7 +712,7 @@ Select PA.AddressID, PA.City, PSP.StateProvinceID, PSP.Name
 FROM Person.Address PA
 INNER JOIN Person.StateProvince PSP ON PSP.StateProvinceID = PA.StateProvinceID
 
-Aula 17 - Conceito de Joins
+-- Aula 17 - Conceito de Joins
 
 Inner Join
 
@@ -754,7 +754,7 @@ id | nome   | id | nome
 3    Samurai  4    Samurai
 4    Monitor  null null
 
-Aula 18 - OUTER JOIN
+-- Aula 18 - OUTER JOIN
 
 Left outer JOIN ou Left Join
 
@@ -780,7 +780,7 @@ left JoIN Sales.PersonCreditCard PC
 ON pp.BusinessEntityID = pc.BusinessEntityID
 where pc.BusinesEntityID is Null
 
-Aula 19 - Union
+-- Aula 19 - Union
 
 O operador Union combina dois ou mais resultados de um select em um resultado apenas.
 
@@ -853,7 +853,7 @@ from Production.ProductInventory
 where Shelf = 'A'
 order by Shelf asc
 
-Aula 20 - Self Join
+-- Aula 20 - Self Join
 
 -- Select Nome_coluna
 -- FROM TABELA A, Tabela B
@@ -881,7 +881,7 @@ SELECT A.ProductID, A.discount, B.ProductID,B.discount
 From [Order Details] A, [Order Details] B
 where A.Discount = B.Discount
 
-Aula 21 - Subquery ( subselect ) - Avançado
+-- Aula 21 - Subquery ( subselect ) - Avançado
 
 monte um relatório de todos os produtos cadastrados que tem o preço de venda acima da 
 média.
@@ -956,7 +956,7 @@ FROM Person.Address
 Where StateProvinceID in ( SELECT StateProvinceID 
 FROM Person.StateProvince where name = 'alberta')
 
-Aula 22 Datepart 
+-- Aula 22 Datepart 
 
 Biblioteca Datepart:
 
@@ -993,7 +993,7 @@ Select ProductID, Datepart(month,DueDate) as Mes, Datepart(year,DueDate) as Ano
 from Purchasing.PurchaseOrderDetail
 order By ano, mes
 
-Aula 23 - Manipulação de String
+-- Aula 23 - Manipulação de String
 
 Biblioteca String - Funções de cadeia de caracteres ( lista de funções de string )
 
@@ -1135,7 +1135,7 @@ From Production.Product
 
 -------------------------------------------------------------------------
 
-Aula 24 - Operações Matemáticas
+-- Aula 24 - Operações Matemáticas
 
 Funções matemáticas SQL Server.
 
@@ -1166,7 +1166,7 @@ from Production.ProductListPriceHistory
 
 --------------------------------------------------------------------------------
 
-Aula 25 - Tipos de dados
+-- Aula 25 - Tipos de dados
 
 BOLEANOS
 caracteres
@@ -1211,7 +1211,7 @@ TIME - Horas, minutos, segundos e milissegundos respeitando
 o limite de '00:00:00.0000000' to '23:59:59.9999999'
 DATETIMEOFFSET - Permite armazenar informações de data e horas incluindo o fuso horário.
 
-AULA 26 - CHAVES PRIMáRIAS e ESTRANGEIRAS -
+-- AULA 26 - CHAVES PRIMáRIAS e ESTRANGEIRAS -
 
 - Uma chave primária é basicamente uma coluna ou grupo de colunas, usada para identificar
 unicamente uma linha em tabela.
@@ -1252,6 +1252,64 @@ aos valores na tabela pai.
 encontrar todos os exemplos de Foreign Key e Primary Key no banco de dados.
 
 Feito !
+
+-- AULA 27 - Create Table 
+
+para criar uma tabela é necessário seguir uma sintaxe.
+
+CREATE TABLE NomeTabela (
+    Coluna1 tipo restrição
+    Coluna2 tipo,
+    coluna3 tipo,
+    ...
+
+);
+
+
+Principais tipos de restrições que podem ser aplicadas
+Not NULL - Nao permite nulos
+UNIQUE - Força que todos os valores em uma coluna sejam diferentes
+PRIMARY KEY - uma junção de NOT NULL e UNIQUE
+FOREIGN KEY - identifica únicamente uma linha em outra tabela
+CHECK - FORÇA uma condição específica em uma coluna
+DEFAULT - Força um valor padrão quando nenhum valor é passado.
+
+Criando uma tabela:
+
+CREATE TABLE CANAL (
+CanalID int Primary KEY,
+Nome Varchar (150) NOT NULL,
+ContagemInscritos INT DEFAULT 0,
+DataCriação DATETIME NOT null
+
+
+);
+
+SELECT *
+FROM CANAL
+
+Criando outra tabela, e referenciando a primeira tabela.
+
+CREATE TABLE Video(
+VideoId Int PRIMARY KEY,
+Nome VARCHAR (150) NOT NULL,
+Visualizações INT DEFAULT 0,
+Likes INT DEFAULT 0,
+DISLIKES INT DEFAULT 0,
+DURAÇÃO INT NOT NULL,
+CanalID INT FOREIGN KEY REFERENCES Canal (CANALID)
+);
+
+SELECT *
+FROM Video
+
+-- DESAFIO
+
+Criar duas tabelas e conectar as duas com Primary Key e Foreign Key.
+
+
+
+
 
 
 
