@@ -1331,13 +1331,58 @@ Chuveiro varchar (100),
 pia Int Not NUll,
 CamaDoQuarto VARCHAR (50) FOREIGN KEY REFERENCES Quarto (cama)
 
- );
+);
 
  SElECT *
- FROM Banheiro
+FROM Banheiro
+
+-- Aula 28 - Insert Into
+
+Insert INTO NomeTabela(Coluna1,Coluna2,...)
+Values(Valor1,Valor2)
+Values(Valor1,Valor2)
+Values(Valor1,Valor2)
 
 
+Insert Into tabelaA (Coluna1)
+SELECT Coluna2
+FROM TabelaB
 
+CREATE TABLE Aula(
+Id int Primary key,
+Nome Varchar(200)
+)
+-- Inserção básica:
+
+Insert Into Aula(Id,Nome)
+VALUES(1,'aula 1')
+
+Select *
+from Aula
+
+-- Inserção em massa:
+
+Insert INTO Aula (id,nome)
+Values
+(2, 'Aula 2'),
+(3, 'Aula 3'),
+(4, 'Aula 4'),
+(5, 'Aula 5');
+
+-- Copiar os dados para outra tabela:
+
+SELECT * into TABELANOVA From Aula
+
+Cria uma nova tabela com os dados da tabela anterior.
+
+-- Desafios:
+
+1. Criar uma tabela nova.
+2. Insira uma linha de dados nela.
+3. Insera 3 linhas de dados ao mesmo tempo.
+4. Crie uma segunda tabela.
+5. Insira 1 linha nessa segunda tabela nova.
+6. Copie os dados da segunda tabela para a primeira.
 
 
 
