@@ -1378,14 +1378,54 @@ Cria uma nova tabela com os dados da tabela anterior.
 -- Desafios:
 
 1. Criar uma tabela nova.
+R:
+Create Table Desafio4 (
+Coluna1 Int,
+Coluna2 Varchar (150),
+Coluna3 Int Default 5,
+Coluna4 datetime Default 11/11/11
+)
+
 2. Insira uma linha de dados nela.
+R:
+INSERT INTO Desafio (Coluna1,Coluna2)
+VALUES
+(10, 'Missão');
+
+
 3. Insera 3 linhas de dados ao mesmo tempo.
+R:
+INSERT INTO Desafio (Coluna1,Coluna2,Coluna3,Coluna4)
+VALUES
+(11, 'Missões', 7, 2023-12-12),
+(12, 'Dadas', 8, 2024-12-12),
+(13, 'Serãos Cumpridas', 9, 2025-12-12);
+
 4. Crie uma segunda tabela.
+R:
+CREATE TABLE DESAFIO3 (
+Coluna5 int ,
+coluna6 Varchar (200),
+Coluna7 Int Default 10,
+coluna8 datetime);
+
 5. Insira 1 linha nessa segunda tabela nova.
+R:
+insert into desafio3 ( Coluna5,coluna6,coluna7,coluna8)
+Values
+(13, 'geek',15,1999-10-06)
+
 6. Copie os dados da segunda tabela para a primeira.
 
+Insert into Desafio4 (Coluna1,Coluna2,Coluna3,Coluna4)
+SELECT Coluna5,Coluna6,Coluna7,Coluna8
+From Desafio3
 
 
+Select *
+From Desafio4
+
+13	geek	15	1905-06-07 00:00:00.000
 
 
 
