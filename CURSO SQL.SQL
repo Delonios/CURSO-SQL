@@ -1452,6 +1452,24 @@ where id = '3'
 
 Mudou o nome da linha onde o ID era = 3.
 
+Aula 30 - Delete
+
+Serve para apagar linhas do banco de dados.
+
+Importante colocar uma condição para não apagar tudo do banco de dados.
+
+SINTAXE:
+
+DELETE FROM NomeTabela
+Where Condição
+
+Delete FROM AULA
+where id = '4'
+
+Apagou a linha desejada, indicada pelo número do ID.
+
+
+
 
 
 
