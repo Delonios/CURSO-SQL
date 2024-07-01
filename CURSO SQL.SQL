@@ -1247,9 +1247,11 @@ aos valores na tabela pai.
 
 - Nós podemos entender que uma chave estrangeira mantém a "integridade referencial ".
 
-Desafio 
+-- Desafio 
 
 encontrar todos os exemplos de Foreign Key e Primary Key no banco de dados.
+
+Feito !
 
 
 
