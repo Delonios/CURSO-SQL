@@ -1308,8 +1308,33 @@ FROM Video
 Criar duas tabelas e conectar as duas com Primary Key e Foreign Key.
 
 
+Primeira etapa:
+
+CREATE TABLE Quarto(
+Cama VARCHAR (50) PRIMARY KEY,
+Janela INT DEFAULT 0,
+LUZ DATETIME NOT NULL
+
+);
+
+SELECT *
+FROM Quarto
+
+All Right!
+
+Segunda Etapa:
 
 
+Create Table Banheiro(
+Privada int Default 0,
+Chuveiro varchar (100),
+pia Int Not NUll,
+CamaDoQuarto VARCHAR (50) FOREIGN KEY REFERENCES Quarto (cama)
+
+ );
+
+ SElECT *
+ FROM Banheiro
 
 
 
