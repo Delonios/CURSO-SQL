@@ -1430,7 +1430,27 @@ From Desafio4
 12	Dadas	8	1905-06-24 00:00:00.000
 13	Serãos Cumpridas	9	1905-06-25 00:00:00.000
 
+Aula 29 - Update
 
+Alteração de linhas do banco de dados.
+
+Sintaxe:
+
+Update NomeTabela
+set COLUNA1 = Valor1
+    coluna2 = Valor2
+Where Condição
+
+update Aula
+Set Nome = 'teste'
+
+Mudou o nome de todas as linhas
+
+update Aula
+Set Nome = 'teste'
+where id = '3'
+
+Mudou o nome da linha onde o ID era = 3.
 
 
 
