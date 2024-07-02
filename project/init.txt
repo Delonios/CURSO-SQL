@@ -1,0 +1,12 @@
+database
+  postgresql
+backend
+  node.js
+frontend
+  form de venda
+    item
+    valor
+    NF
+  listagem de vendas por range de data
+
+  React.js

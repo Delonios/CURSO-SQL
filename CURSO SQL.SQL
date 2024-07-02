@@ -1664,6 +1664,31 @@ Varsovia int check ( Varsovia <= 10) not null
 );
 
 
+-- Aula 35 - Unique Constraint
+
+Como ter colunas únicas, porém diferente de uma primary key, pode existir várias
+ colunas com a restrição UNIQUE.
+
+ SYNTAXE:
+
+CREATE TABLE CarteiraMotorista (
+    id int NOT NULL,
+    NOME Varchar(255) NOT NULL,
+    IDADE int CHECK (idade >= 18),
+    CodigoCNH int NOT NULL UNIQUE
+);
+
+insert into CarteiraMotorista (id,nome,Idade,CodigoCNH) 
+values (1,'Derango',21,456842)
+
+insert into CarteiraMotorista (id,nome,Idade,CodigoCNH) 
+values (3,'Lira',22,456842)
+
+Violação da restrição UNIQUE KEY 'UQ__Carteira__F42C573F3D2BD16C'. 
+Não é possível inserir a chave duplicada no objeto 'dbo.CarteiraMotorista'.
+
+
+
 
 
 
