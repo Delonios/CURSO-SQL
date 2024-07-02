@@ -1592,6 +1592,28 @@ Apagando a segunda tabela.
 
 drop table TrunkDrop
 
+-- Aula 33 - Check Constraint
+
+    São Restrições de valores que podem ser inseridos em uma coluna de uma tabela em banco de dados
+quando você está criando uma tabela.
+
+Syntaxe
+
+CREATE TABLE CarteiraMotorista (
+    Id int Not Null,
+    Nome varchar(255) NOT NULL,
+    Idade int Check ( Idade >= 18)
+);
+
+Insert into carteiraMotorista (id,nome,idade)
+values (1,'Rafael',17)
+
+A instrução INSERT conflitou com a restrição do CHECK "CK__CarteiraM__Idade__51851410"
+
+
+
+
+
 
 
 
