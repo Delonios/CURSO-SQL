@@ -1550,7 +1550,19 @@ Exec sp_rename 'watermark.rodo', 'Vassoura', 'Column'
 Exec sp_rename 'Watermark', 'ProdutosResidenciais'
 
 
+-- Aula 32 - Drop Table
 
+Drop table é o processo de exclusão de uma tabela de um banco de dados.
+
+Syntaxe:
+
+DROP TABLE nomedatabela.
+
+Drop table ErrorLog
+
+para apagar somente o conteúdo da tabela.
+
+truncate table Person.password.
 
 
 
