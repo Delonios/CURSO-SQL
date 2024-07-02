@@ -1564,6 +1564,34 @@ para apagar somente o conteúdo da tabela.
 
 truncate table Person.password.
 
+DESAFIO
+
+Criar 2 tabelas e excluir as duas.
+
+Criando primeira tabela...
+
+Create Table Droptrunk (
+Senis varchar(200) unique,
+foxis int default 5,
+axious int
+);
+
+Criando a segunda tabela...
+
+Create Table trunkDrop (
+Sines varchar(300) unique,
+Gali int default 5,
+Varsovia int
+);
+
+Apagando a primeira tabela.
+
+drop table Droptrunk
+
+Apagando a segunda tabela.
+
+drop table TrunkDrop
+
 
 
 
