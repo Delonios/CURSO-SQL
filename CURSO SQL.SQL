@@ -1430,7 +1430,7 @@ From Desafio4
 12	Dadas	8	1905-06-24 00:00:00.000
 13	Serãos Cumpridas	9	1905-06-25 00:00:00.000
 
-Aula 29 - Update
+-- Aula 29 - Update
 
 Alteração de linhas do banco de dados.
 
@@ -1452,7 +1452,7 @@ where id = '3'
 
 Mudou o nome da linha onde o ID era = 3.
 
-Aula 30 - Delete
+-- Aula 30 - Delete
 
 Serve para apagar linhas do banco de dados.
 
@@ -1469,8 +1469,85 @@ where id = '4'
 Apagou a linha desejada, indicada pelo número do ID.
 
 
+-- Aula 31 - Alter Table.
 
+COmo alterar estruturas de tabela.
 
+Syntaxe ->
+ALTER TABLE NomedaTabela
+ação
+
+exemplos de o que pode ser feito:
+- add, remover ou alterar um coluna;
+- setar valores padrões para uma coluna;
+- Add ou Remover restrições de colunas;
+- Renomear uma tabela.
+___________________________________
+
+CREATE TABLE youtube (
+id int primary key,
+Nome varchar(150) not null unique,
+categoria varchar(200) not null,
+dataCriacao datetime not null
+)
+
+Criamos uma nova tabela.
+
+agora vamos inserir uma nova coluna.
+
+alter table youtube
+add ativo bit
+
+agora vamos alterar o limite de caracteres da coluna Categoria:
+
+Alter table youtube
+alter column Categoria varchar(300) not null
+
+Para alterar o nome da coluna devemos seguir um procedimento específico.
+
+EXEC sp_Rename 'nomedatabela.NomeColunaAtual', 'nomeColunaNova', 'Column'
+
+Exemplo:
+
+Mudando o nome da coluna Nome para NomeCanal:
+
+EXEC sp_Rename 'youtube.nome', 'NomeCanal', 'Column'
+
+Mudando o nome da Tabela YouTube para Youtube 2
+
+EXEC sp_Rename 'youtube', 'youtube2'
+
+-----------------------------------------------------------------------------
+
+-- Desafio
+
+Criar uma tabela nova com 3 colunas e depois:
+
+1. Alterar o tipo de uma coluna.
+2. Renomear o nome de uma coluna.
+3. renomear o nome da tabela que você criou.
+
+R:
+
+Criação da tabela com 3 colunas:
+
+Create Table WaterMark (
+Bexiga varchar(200) unique,
+rodo int default 5,
+Logo int
+);
+
+1. Alterar o tipo de uma coluna.
+
+alter table book
+alter column logo varchar(5)
+
+2. Renomear o nome de uma coluna.
+
+Exec sp_rename 'watermark.rodo', 'Vassoura', 'Column'
+
+3. renomear o nome da tabela que você criou.
+Exec sp_rename 'Watermark', 'ProdutosResidenciais'
 
 
 
