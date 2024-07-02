@@ -1630,6 +1630,20 @@ ilag int default 8 check (ilag <=10),
 Viavarso int check ( Viavarso >= 100)
 );
 
+-- Aula 34 - NOT NULL CONSTRAINT
+
+Usado para criar restrições que forçam com que não seja possível inserir dados em uma tabela sem 
+preencher a coluna marcada como NOT NULL.
+
+Syntaxe:
+
+CREATE TABLE CarteiraMotorista (
+    id int NOT NULL,
+    NOME Varchar(255) NOT NULL,
+    IDADE int CHECK (idade >= 18)
+);
+
+
 
 
 
