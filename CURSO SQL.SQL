@@ -1643,6 +1643,28 @@ CREATE TABLE CarteiraMotorista (
     IDADE int CHECK (idade >= 18)
 );
 
+-- Desafio
+
+Criar 2 tabelas novas que não permita campos vazios em duas colunas cada tabela.
+
+Criando a primeira tabela.
+
+Create Table CheckNull1 (
+Senis varchar(300) unique NOT NULL,
+ilag int default 8 check (ilag <=10) NOT NULL,
+Viavarso int check ( Viavarso >= 100)
+);
+
+Criando a segunda tabela.
+
+Create Table NullNot (
+Sines varchar(300) unique not null,
+Gali int default 5 check (Gali >=4),
+Varsovia int check ( Varsovia <= 10) not null
+);
+
+
+
 
 
 
