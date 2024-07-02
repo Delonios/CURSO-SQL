@@ -1610,7 +1610,25 @@ values (1,'Rafael',17)
 
 A instrução INSERT conflitou com a restrição do CHECK "CK__CarteiraM__Idade__51851410"
 
+-- Desafio
 
+Criar 2 tabelas e criar duas restrições para elas.
+
+Criando Primeira tabela com 2 restrições.
+
+Create Table trunkDrop (
+Sines varchar(300) unique,
+Gali int default 5 check (Gali >=4),
+Varsovia int check ( Varsovia <= 10)
+);
+
+Criando segunda tabela com 2 restrições
+
+Create Table DropTrunk (
+Senis varchar(300) unique,
+ilag int default 8 check (ilag <=10),
+Viavarso int check ( Viavarso >= 100)
+);
 
 
 
