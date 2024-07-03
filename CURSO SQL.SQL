@@ -1737,7 +1737,35 @@ Violação da restrição UNIQUE KEY 'UQ__Titulo__68E53B80D9F442FF'. Não é pos
 inserir a chave duplicada no objeto 'dbo.Titulo'. O valor de chave duplicada é (5021).
 A instrução foi finalizada.
 
+-- Aula 36 VIEWS 
 
+Como usar Views, que são tabelas criadas para consulta onde você usa outras TABELAS
+como base para criar uma nova tabela de pesquisa com apenas dados específicos que você
+precisa de uma tabela.
+
+SYNTAXE
+
+Create View [Pessoas Simplificado] as
+SELECT FirstName, MiddleName, LastName
+From Person.Person
+Where Title = 'MS.'
+
+Testando:
+
+Create View [Pessoas Simplificado] as
+SELECT FirstName, MiddleName, LastName
+From Person.Person
+Where Title = 'MS.'
+
+SELECT *
+FROM [Pessoas Simplificado]
+
+Gail	A	Erickson
+Janice	M	Galvin
+Jill	A	Williams
+Catherine	R.	Abel
+
+FIM DO CURSO 
 
 
 
