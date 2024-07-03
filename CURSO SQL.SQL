@@ -1687,6 +1687,57 @@ values (3,'Lira',22,456842)
 Violação da restrição UNIQUE KEY 'UQ__Carteira__F42C573F3D2BD16C'. 
 Não é possível inserir a chave duplicada no objeto 'dbo.CarteiraMotorista'.
 
+-- Desafio
+
+Criar 2 tabelas novas com 2 campos que precisem ser restringidos com o comando UNIQUE
+
+Criando a primeira tabela...
+
+CREATE TABLE Identidade (
+    Núnero int NOT NULL UNIQUE,
+    NOME Varchar(255) NOT NULL,
+    Cidade Varchar(255) check (cidade != 'São Paulo'),
+    RG int NOT NULL UNIQUE
+);
+
+Inserindo a primeira linha:
+
+Insert Into Identidade (Núnero, nome, cidade, RG)
+Values ( 1, 'Del', 'Rio',11)
+
+inserindo a segunda linha com infringindo as restrições:
+
+Insert Into Identidade (Núnero, nome, cidade, RG)
+Values ( 1, 'LES', 'SP',11)
+
+Violação da restrição UNIQUE KEY 'UQ__Identida__321537C896C5CF13'. 
+Não é possível inserir a chave duplicada no objeto 'dbo.Identidade'. 
+O valor de chave duplicada é (11).
+
+Criando a segunda tabela...
+
+
+CREATE TABLE Titulo (
+    Numero int NOT NULL UNIQUE,
+    Mesário Varchar(255) NOT NULL,
+	CódigoPessoal int NOT NULL UNIQUE,
+    Escola Varchar(255) check (Escola != 'USP'),
+    
+);
+
+insert into titulo (numero, mesário, CódigoPessoal, Escola)
+Values (122,'Denis',5021,'Emei')
+
+inserindo a segunda linha com infringindo as restrições:
+
+insert into titulo (numero, mesário, CódigoPessoal, Escola)
+Values (122,'Denis',5021,'Emei')
+
+Violação da restrição UNIQUE KEY 'UQ__Titulo__68E53B80D9F442FF'. Não é possível 
+inserir a chave duplicada no objeto 'dbo.Titulo'. O valor de chave duplicada é (5021).
+A instrução foi finalizada.
+
+
 
 
 
